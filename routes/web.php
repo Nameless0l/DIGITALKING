@@ -5,8 +5,10 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\DevisController;
+use App\Http\Controllers\MailController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\ServicesController;
+use Illuminate\Routing\RouteAction;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,3 +55,8 @@ Route::controller(DevisController::class)->group(function () {
 Route::get('/king-digital',function(){
     return view('layouts.droits');
 })->name('droits');
+
+//web
+Route::controller(MailController::class)->group(function(){
+    Route::get('/envoie','mailnotify')->name('sendmail');
+});

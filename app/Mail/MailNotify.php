@@ -17,9 +17,9 @@ class MailNotify extends Mailable
     /**
      * Create a new message instance.
      */
-    public function __construct()
+    public function __construct($data)
     {
-        //
+        $this->data=$data ;
     }
 
     /**
@@ -32,13 +32,20 @@ class MailNotify extends Mailable
         );
     }
 
+    public function build(){
+        // dd($this->data);
+        return $this->from('wwwwmbassiloic@gmail.com')
+                    ->view('mail.mail');
+    }
+
     /**
      * Get the message content definition.
      */
     public function content(): Content
     {
+        // dd($this->data);
         return new Content(
-            view: 'view.name',
+            view: 'mail.mail',
         );
     }
 

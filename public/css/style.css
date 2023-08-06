@@ -80,7 +80,7 @@ h6,
 
 /*** Button ***/
 .btn {
-    font-family: 'Nunito', sans-serif;
+    font-family: 'AvantGarde', sans-serif;
     font-weight: 600;
     transition: .5s;
 }
@@ -125,7 +125,7 @@ h6,
 
 /*** Navbar ***/
 .navbar-dark .navbar-nav .nav-link {
-    font-family: 'Nunito', sans-serif;
+    font-family: 'AvantGarde', sans-serif;
     position: relative;
     margin-left: 25px;
     padding: 35px 0;
@@ -182,7 +182,7 @@ h6,
         border-bottom: 1px solid rgba(256, 256, 256, .1);
         z-index: 999;
     }
-    
+
     .sticky-top.navbar-dark {
         position: fixed;
         background: #FFFFFF;
