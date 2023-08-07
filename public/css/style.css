@@ -1,4 +1,6 @@
 /********** Template CSS **********/
+@font-face {font-family: 'Avantgarde';src: url('../font/Avantgarde-Light.otf') format('opentype'); }
+
 :root {
     --primary: #06A3DA;
     --secondary: #34AD54;
@@ -80,7 +82,7 @@ h6,
 
 /*** Button ***/
 .btn {
-    font-family: 'AvantGarde', sans-serif;
+    font-family: 'Avantgarde', sans-serif;
     font-weight: 600;
     transition: .5s;
 }
@@ -125,7 +127,7 @@ h6,
 
 /*** Navbar ***/
 .navbar-dark .navbar-nav .nav-link {
-    font-family: 'AvantGarde', sans-serif;
+    font-family: 'Avantgarde', sans-serif;
     position: relative;
     margin-left: 25px;
     padding: 35px 0;

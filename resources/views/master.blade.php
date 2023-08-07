@@ -91,8 +91,8 @@
     <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
         <div class="container py-5">
             <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 600px;">
-                <h5 class="fw-bold text-primary text-uppercase">Why Choose Us</h5>
-                <h1 class="mb-0">We Are Here to Grow Your Business Exponentially</h1>
+                <h5 class="fw-bold text-primary text-uppercase">Pourquoi nous faire confiance ?</h5>
+                <h1 class="mb-0">Nous sommes la pour vous donner le meilleur resultat auquel vous vous attendez.</h1>
             </div>
             <div class="row g-5">
                 <div class="col-lg-4">
@@ -101,16 +101,16 @@
                             <div class="bg-primary rounded d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
                                 <i class="fa fa-cubes text-white"></i>
                             </div>
-                            <h4>Best In Industry</h4>
-                            <p class="mb-0">Magna sea eos sit dolor, ipsum amet lorem diam dolor eos et diam dolor</p>
+                            <h4>Meilleur dans notre domaine</h4>
+                            <p class="mb-0">Notre renommé en dit plus sur nous</p>
                         </div>
-                        <div class="col-12 wow zoomIn" data-wow-delay="0.6s">
+                        {{-- <div class="col-12 wow zoomIn" data-wow-delay="0.6s">
                             <div class="bg-primary rounded d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
                                 <i class="fa fa-award text-white"></i>
                             </div>
                             <h4>Award Winning</h4>
                             <p class="mb-0">Magna sea eos sit dolor, ipsum amet lorem diam dolor eos et diam dolor</p>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
                 <div class="col-lg-4  wow zoomIn" data-wow-delay="0.9s" style="min-height: 350px;">
@@ -124,15 +124,25 @@
                             <div class="bg-primary rounded d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
                                 <i class="fa fa-users-cog text-white"></i>
                             </div>
-                            <h4>Professional Staff</h4>
-                            <p class="mb-0">Magna sea eos sit dolor, ipsum amet lorem diam dolor eos et diam dolor</p>
+                            <h4>Une Equipe assez qualifiée</h4>
+                            <p class="mb-0">Une équipe passionnée, dévouée et talentueuse, travaillant
+                                de concert pour repousser les limites de l'innovation. Ensemble, nous
+                                façonnons l'avenir avec audace et créativité, en laissant notre empreinte
+                                sur chaque défi que nous relevons. Découvrez le pouvoir de l'unité et de
+                                l'excellence avec notre équipe dynamique, prête à vous surprendre à chaque
+                                 instant. Bienvenue dans le monde de l'excellence, bienvenue dchez King Digitalmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm.</p>
                         </div>
                         <div class="col-12 wow zoomIn" data-wow-delay="0.8s">
                             <div class="bg-primary rounded d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
                                 <i class="fa fa-phone-alt text-white"></i>
                             </div>
-                            <h4>24/7 Support</h4>
-                            <p class="mb-0">Magna sea eos sit dolor, ipsum amet lorem diam dolor eos et diam dolor</p>
+                            <h4>disponibilité 24h/24</h4>
+                            <p class="mb-0">Nous sommes les esprits créatifs qui ne dorment jamais !
+                                Notre équipe de designers et devellopeurs passionnés est constamment prête à donner
+                                vie à vos rêves et à transformer vos idées en réalité. Nous sommes là pour apporter notre touche artistique
+                                  à chaque défi qui se présente.Avec notre disponibilité sans limite, chaque instant est une opportunité
+                                    de créer quelque chose d'exceptionnel. Faites confiance à notre équipe créative, nous
+                                    somme là pour vous inspirer et vous émerveiller à chaque instant !</p>
                         </div>
                     </div>
                 </div>

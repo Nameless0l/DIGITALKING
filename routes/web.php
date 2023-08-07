@@ -3,11 +3,14 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\DevisController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\PagesController;
+use App\Http\Controllers\SearchController;
 use App\Http\Controllers\ServicesController;
+use App\Models\Comment;
 use Illuminate\Routing\RouteAction;
 
 /*
@@ -34,7 +37,7 @@ Route::controller(ServicesController::class)->group(function () {
 });
 Route::controller(BlogController::class)->group(function () {
     Route::get('/blog', 'index')->name('blog');
-    Route::get('/blog-details', 'blogDetails')->name('blog.detail');
+    Route::get('/blog-details/{id}', 'blogDetails')->name('blog.detail');
 });
 //Contact us
 Route::controller(ContactUsController::class)->group(function () {
@@ -59,4 +62,16 @@ Route::get('/king-digital',function(){
 //web
 Route::controller(MailController::class)->group(function(){
     Route::get('/envoie','mailnotify')->name('sendmail');
+});
+
+//comment
+Route::controller(CommentController::class)->group(function(){
+    Route::any('add/{posts_id}', 'add')->name('add_comment');
+    Route::post('delete', 'delete')->name('delete_comment');
+});
+
+//search
+Route::controller(SearchController::class)->group(function(){
+    Route::get('search','base')->name('search_base');
+    Route::get('search-blog','blog')->name('search_blog');
 });

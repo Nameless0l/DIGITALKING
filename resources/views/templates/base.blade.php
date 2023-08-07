@@ -7,6 +7,8 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
+    {{-- Ne pas oublier de commenter la ligne suivante en production --}}
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
@@ -22,14 +24,25 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="{{asset('lib/owlcarousel/assets/owl.carousel.min.css')}}" rel="stylesheet">
+    <link href="{{asset('lib/animate/animate.min.css')}}" rel="stylesheet">
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
 
     <!-- Template Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
+    <link href="{{asset('css/style.css')}}" rel="stylesheet">
+
+    {{-- test --}}
+        {{-- <!-- Libraries Stylesheet -->
+        <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+        <link href="lib/animate/animate.min.css" rel="stylesheet">
+
+        <!-- Customized Bootstrap Stylesheet -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Template Stylesheet -->
+        <link href="css/style.css" rel="stylesheet"> --}}
 </head>
 
 <body>
@@ -53,11 +66,11 @@
             <div class="col-lg-4 text-center text-lg-end">
                 <div class="d-inline-flex align-items-center" style="height: 45px;">
                     <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://wa.me/+237653531407"><i class="fab fa-whatsapp fw-normal"></i></a>
-                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i class="fab fa-twitter fw-normal"></i></a>
-                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i class="fab fa-facebook-f fw-normal"></i></a>
-                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i class="fab fa-linkedin-in fw-normal"></i></a>
-                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i class="fab fa-instagram fw-normal"></i></a>
-                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle" href=""><i class="fab fa-youtube fw-normal"></i></a>
+                    {{-- <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i class="fab fa-twitter fw-normal"></i></a> --}}
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://www.facebook.com/profile.php?id=100063619960910&mibextid=ZbWKwL"><i class="fab fa-facebook-f fw-normal"></i></a>
+                    {{-- <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i class="fab fa-linkedin-in fw-normal"></i></a> --}}
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://instagram.com/_king_digital?utm_source=qr&igshid=MzNlNGNkZWQ4Mg%3D%3D"><i class="fab fa-instagram fw-normal"></i></a>
+                    {{-- <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle" href=""><i class="fab fa-youtube fw-normal"></i></a> --}}
                 </div>
             </div>
         </div>
@@ -68,8 +81,8 @@
     <!-- Navbar & Carousel Start -->
     <div class="container-fluid position-relative p-0">
         <nav class="navbar navbar-expand-lg navbar-dark px-5 py-3 py-lg-0">
-            <a href="index.html" class="navbar-brand p-0">
-                <h1 class="m-0"><img src="img/logo.png" alt="Avatar Logo" style="width:60px;" class="rounded-pill">KING-DIGITAL</h1>
+            <a href="{{route('accueil')}}" class="navbar-brand p-0">
+                <h1 class="m-0 text-black"><img src="{{asset('img/logo.png')}}" alt="Avatar Logo" style="width:60px;" class="rounded-pill">KING-DIGITAL</h1>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                 <span class="fa fa-bars"></span>
@@ -79,13 +92,7 @@
                     <a href="{{route('accueil')}}" class="nav-item nav-link active">Home</a>
                     <a href="{{route('about')}}" class="nav-item nav-link">À propos</a>
                     <a href="{{route('services')}}" class="nav-item nav-link">Services</a>
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Blog</a>
-                        <div class="dropdown-menu m-0">
-                            <a href="{{route('blog')}}" class="dropdown-item">Blog Grid</a>
-                            <a href="{{route('blog.detail')}}" class="dropdown-item">Blog Detail</a>
-                        </div>
-                    </div>
+                    <a href="{{route('blog')}}" class="nav-item nav-link">Blog</a>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                         <div class="dropdown-menu m-0">
@@ -116,9 +123,9 @@
                 </div>
                 <div class="modal-body d-flex align-items-center justify-content-center">
                     <div class="input-group" style="max-width: 600px;">
-                        <form action="" method="post">
+                        <form action="{{route('search_base')}}" method="post">
                             @csrf
-                            <input type="text" name="search" class="form-control bg-transparent border-primary p-3" placeholder="Faites des recherches à partir des mots clés">
+                            <input type="text" name="element" class="form-control bg-transparent border-primary p-3" placeholder="Faites des recherches à partir des mots clés">
                             <button class="btn btn-primary px-4"><i class="bi bi-search"></i></button>
                         </form>
                     </div>
@@ -158,8 +165,8 @@
             <div class="row gx-5">
                 <div class="col-lg-4 col-md-6 footer-about">
                     <div class="d-flex flex-column align-items-center justify-content-center text-center h-100 bg-primary p-4">
-                        <a href="index.html" class="navbar-brand">
-                            <h1 class="m-0 text-white"> <img src="img/logo.png" alt="Avatar Logo" style="width:60px;" class="rounded-pill">KING-DIGITAL</h1>
+                        <a href="{{route('accueil')}}" class="navbar-brand">
+                            <h1 class="m-0 text-black"> <img src="{{asset('asset/logo/logo-KD.1.jpg')}}" alt="Avatar Logo" style="width:60px;" class="rounded-pill">KING-DIGITAL</h1>
                         </a>
                         <p class="mt-3 mb-4">Lorem diam sit erat dolor elitr et, diam lorem justo amet clita stet eos sit. Elitr dolor duo lorem, elitr clita ipsum sea. Diam amet erat lorem stet eos. Diam amet et kasd eos duo.</p>
                         <form action="">
@@ -189,11 +196,11 @@
                                 <p class="mb-0">+237 657994610</p>
                             </div>
                             <div class="d-flex mt-4">
-                                <a class="btn btn-primary btn-square me-2" href="#"><i class="fab fa-twitter fw-normal"></i></a>
-                                <a class="btn btn-primary btn-square me-2" href="#"><i class="fab fa-facebook-f fw-normal"></i></a>
-                                <a class="btn btn-primary btn-square me-2" href="#"><i class="fab fa-linkedin-in fw-normal"></i></a>
+                                {{-- <a class="btn btn-primary btn-square me-2" href="#"><i class="fab fa-twitter fw-normal"></i></a> --}}
+                                <a class="btn btn-primary btn-square me-2" href="https://www.facebook.com/profile.php?id=100063619960910&mibextid=ZbWKwL"><i class="fab fa-facebook-f fw-normal"></i></a>
+                                {{-- <a class="btn btn-primary btn-square me-2" href="#"><i class="fab fa-linkedin-in fw-normal"></i></a> --}}
                                 <a class="btn btn-primary btn-square me-2" href="https://wa.me/+237653531407"><i class="fab fa-whatsapp fw-normal"></i></a>
-                                <a class="btn btn-primary btn-square" href="#"><i class="fab fa-instagram fw-normal"></i></a>
+                                <a class="btn btn-primary btn-square" href="https://instagram.com/_king_digital?utm_source=qr&igshid=MzNlNGNkZWQ4Mg%3D%3D"><i class="fab fa-instagram fw-normal"></i></a>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-12 pt-0 pt-lg-5 mb-5">
@@ -232,7 +239,7 @@
             <div class="row justify-content-end">
                 <div class="col-lg-8 col-md-6">
                     <div class="d-flex align-items-center justify-content-center" style="height: 75px;">
-                        <p class="mb-0">&copy; <a class="text-white border-bottom" href="{{route('accueil')}}">King digital</a>. Touts droits reservés.
+                        <p class="mb-0" >&copy; <a class="text-white border-bottom" href="{{route('accueil')}}"  >King digital</a>. Touts droits reservés.
 
 						<!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
 						{{-- Designed by --}}
@@ -251,14 +258,28 @@
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/wow/wow.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/counterup/counterup.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="{{asset('lib/wow/wow.min.js')}}"></script>
+    <script src="{{asset('lib/easing/easing.min.js')}}"></script>
+    <script src="{{asset('lib/waypoints/waypoints.min.js')}}"></script>
+    <script src="{{asset('lib/counterup/counterup.min.js')}}"></script>
+    <script src="{{asset('lib/owlcarousel/owl.carousel.min.js')}}"></script>
 
     <!-- Template Javascript -->
-    <script src="js/main.js"></script>
+    <script src="{{asset('js/main.js')}}"></script>
+
+
+    {{-- test --}}
+       <!-- JavaScript Libraries -->
+       {{-- <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+       <script src="lib/wow/wow.min.js"></script>
+       <script src="lib/easing/easing.min.js"></script>
+       <script src="lib/waypoints/waypoints.min.js"></script>
+       <script src="lib/counterup/counterup.min.js"></script>
+       <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+       <!-- Template Javascript -->
+       <script src="js/main.js"></script> --}}
 </body>
 
 </html>
