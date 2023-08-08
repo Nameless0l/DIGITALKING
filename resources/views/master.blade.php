@@ -137,12 +137,14 @@
                                 <i class="fa fa-phone-alt text-white"></i>
                             </div>
                             <h4>disponibilité 24h/24</h4>
-                            <p class="mb-0">Nous sommes les esprits créatifs qui ne dorment jamais !
+                            <p class="mb-0">
+                                Nous sommes les esprits créatifs qui ne dorment jamais !
                                 Notre équipe de designers et devellopeurs passionnés est constamment prête à donner
                                 vie à vos rêves et à transformer vos idées en réalité. Nous sommes là pour apporter notre touche artistique
-                                  à chaque défi qui se présente.Avec notre disponibilité sans limite, chaque instant est une opportunité
-                                    de créer quelque chose d'exceptionnel. Faites confiance à notre équipe créative, nous
-                                    somme là pour vous inspirer et vous émerveiller à chaque instant !</p>
+                                à chaque défi qui se présente.Avec notre disponibilité sans limite, chaque instant est une opportunité
+                                de créer quelque chose d'exceptionnel. Faites confiance à notre équipe créative, nous
+                                somme là pour vous inspirer et vous émerveiller à chaque instant !
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -150,8 +152,6 @@
         </div>
     </div>
     <!-- Features Start -->
-
-
     <!-- Service Start -->
         <x-services/>
     <!-- Service End -->
