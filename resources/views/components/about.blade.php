@@ -25,7 +25,16 @@
                         </div>
                         <div class="ps-4">
                             <h5 class="mb-2">Appelez pour poser une question</h5>
-                            <h4 class="text-primary mb-0">+237 653531407</h4>
+                            <h4 class="text-primary mb-0">+237 657994610</h4>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center mb-4 wow fadeIn" data-wow-delay="0.6s">
+                        <div class="bg-primary d-flex align-items-center justify-content-center rounded" style="width: 60px; height: 60px;">
+                            <i class="fab fa-whatsapp text-white"></i>
+                        </div>
+                        <div class="ps-4">
+                            <h5 class="mb-2">Nous contcter sur whatsapp</h5>
+                            <h4 class="text-primary mb-0"><a href="https://wa.me/+237653531407">+237 653531407</a></h4>
                         </div>
                     </div>
                     <a href="{{route('devis')}}" class="btn btn-primary py-3 px-5 mt-3 wow zoomIn" data-wow-delay="0.9s">Demandez un devis</a>

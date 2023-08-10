@@ -130,7 +130,7 @@
                                 façonnons l'avenir avec audace et créativité, en laissant notre empreinte
                                 sur chaque défi que nous relevons. Découvrez le pouvoir de l'unité et de
                                 l'excellence avec notre équipe dynamique, prête à vous surprendre à chaque
-                                 instant. Bienvenue dans le monde de l'excellence, bienvenue dchez King Digitalmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm.</p>
+                                 instant. Bienvenue dans le monde de l'excellence, bienvenue dchez King Digital.</p>
                         </div>
                         <div class="col-12 wow zoomIn" data-wow-delay="0.8s">
                             <div class="bg-primary rounded d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
@@ -306,4 +306,5 @@
         </div>
     </div>
     <!-- Blog Start -->
+    <x-forms.tinymce-editor/>
 @endsection

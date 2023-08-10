@@ -25,7 +25,7 @@
                             <h4 class="text-primary mb-0">+237 657994610</h4>
                         </div>
                         <div class="bg-primary d-flex align-items-center justify-content-center rounded" style="width: 60px; height: 60px;">
-                            <i class="fab fa-whatsapp fw-normal"></i>
+                            <i class="fab fa-whatsapp fw-normal text-white"></i>
                         </div>
                         <div class="ps-4">
                             <h5 class="mb-2">Appelez pour poser n'importe quelle question</h5>
