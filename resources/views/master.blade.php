@@ -306,5 +306,4 @@
         </div>
     </div>
     <!-- Blog Start -->
-    <x-forms.tinymce-editor/>
 @endsection

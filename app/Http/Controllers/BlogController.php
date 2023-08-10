@@ -20,4 +20,12 @@ class BlogController extends Controller
         $comments=Comment::where('posts_id',$id)->get();
         return view('layouts.blog_detail',compact(['posts','comments','id','post']));
     }
+    public function createPost()
+    {
+        return view('admin.creation_post');
+    }
+    public function listePosts()
+    {
+        return view('admin.liste_posts');
+    }
 }

@@ -27,10 +27,13 @@ use Illuminate\Routing\RouteAction;
 Route::get('/', function () {
     return view('master');
 })->name('accueil');
+
+Route::get('/admin+francky',function(){
+    return view('masterAdmin');
+})->name('master');
 Route::controller(AboutController::class)->group(function () {
     Route::get('/about', 'index')->name('about');
 });
-
 // Services
 Route::controller(ServicesController::class)->group(function () {
     Route::get('/services', 'index')->name('services');
@@ -38,6 +41,8 @@ Route::controller(ServicesController::class)->group(function () {
 Route::controller(BlogController::class)->group(function () {
     Route::get('/blog', 'index')->name('blog');
     Route::get('/blog-details/{id}', 'blogDetails')->name('blog.detail');
+    Route::get('/post-creation','createPost')->name('create_post');
+    Route::get('/liste+posts','listePosts')->name('listePoste');
 });
 //Contact us
 Route::controller(ContactUsController::class)->group(function () {
@@ -75,3 +80,6 @@ Route::controller(SearchController::class)->group(function(){
     Route::get('search','base')->name('search_base');
     Route::get('search-blog','blog')->name('search_blog');
 });
+
+
+//Admin
