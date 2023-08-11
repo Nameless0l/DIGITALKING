@@ -10,6 +10,7 @@ use App\Http\Controllers\MailController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\ServicesController;
+use App\Http\Controllers\UploadImagesController;
 use App\Models\Comment;
 use Illuminate\Routing\RouteAction;
 
@@ -37,12 +38,14 @@ Route::controller(AboutController::class)->group(function () {
 // Services
 Route::controller(ServicesController::class)->group(function () {
     Route::get('/services', 'index')->name('services');
+    Route::get('/serigraphie', 'serigraphie')->name('serigraphie');
 });
 Route::controller(BlogController::class)->group(function () {
     Route::get('/blog', 'index')->name('blog');
     Route::get('/blog-details/{id}', 'blogDetails')->name('blog.detail');
     Route::get('/post-creation','createPost')->name('create_post');
     Route::get('/liste+posts','listePosts')->name('listePoste');
+    Route::post('/create-blog','__create')->name('createPost');
 });
 //Contact us
 Route::controller(ContactUsController::class)->group(function () {
@@ -81,5 +84,8 @@ Route::controller(SearchController::class)->group(function(){
     Route::get('search-blog','blog')->name('search_blog');
 });
 
-
-//Admin
+//Upload file
+Route::controller(UploadImagesController::class)->group(function(){
+    Route::get('/upload-images','form')->name('form_upload');
+    Route::post('/upload-images','save')->name('save_upload');
+});

@@ -31,8 +31,8 @@
                                         <small class="me-3"><i class="far fa-user text-primary me-2"></i>{{$post->user->name}}</small>
                                         <small><i class="far fa-calendar-alt text-primary me-2"></i>{{$post->created_at->format('D M Y')}}</small>
                                     </div>
-                                    <h4 class="mb-3">{{$post->title}}</h4>
-                                    <p>{{$post->content}}</p>
+                                    <h4 class="mb-3">{!! $post->title !!}</h4>
+                                    <p>{!! $post->content !!}</p>
                                     <a class="text-uppercase" href="{{route('blog.detail',['id'=>$post->id])}}">Voir plus<i class="bi bi-arrow-right"></i></a>
                                 </div>
                             </div>

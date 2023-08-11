@@ -21,12 +21,7 @@
                     <div class="mb-5">
                         <img class="img-fluid w-100 rounded mb-5" src="{{asset('img/blog-1.jpg')}}" alt="">
                         <h1 class="mb-4">{{$post->title}}</h1>
-                        <p>{{$post->content}}</p>
-                            vero stet consetetur elitr takimata rebum sanctus. Sit sed accusam stet sit
-                            nonumy kasd diam dolores, sanctus lorem kasd duo dolor dolor vero sit et. Labore
-                            ipsum duo sanctus amet eos et. Consetetur no sed et aliquyam ipsum justo et,
-                            clita lorem sit vero amet amet est dolor elitr, stet et no diam sit. Dolor erat
-                            justo dolore sit invidunt.</p>
+                        <p>{!! $post->content !!}</p>
                     </div>
                     <!-- Blog Detail End -->
 

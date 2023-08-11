@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class BlogController extends Controller
 {
     public function index(){
-        $posts=Post::paginate(8);
+        $posts=Post::orderBy('created_at','desc')->paginate(8);
         $comments=Comment::all();
         return view('layouts.blog',compact(['posts','comments']));
     }
@@ -26,6 +26,17 @@ class BlogController extends Controller
     }
     public function listePosts()
     {
-        return view('admin.liste_posts');
+        $post =Post::findorFail(12);
+        return view('admin.liste_posts',compact(['post']));
+    }
+    public function __create(Request $request)
+    {
+        // dd($request);
+        $post=new Post();
+        $post->users_id='2';
+        $post->content = $request->input('content'); // Assurez-vous d'avoir le champ 'content' dans votre formulaire
+        $post->save();
+
+        return redirect()->route('listePoste');
     }
 }
