@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Models\Comment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
+use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\Storage;
 
 class BlogController extends Controller
 {
@@ -34,14 +37,30 @@ class BlogController extends Controller
     public function __create(Request $request)
     {
         $post=new Post();
-        $name=$request->file('file')->hashName();
+        $image=$request->file('file');
         $menu=$request->service;
-        $file_path=$request->file->storeAs('/posts/'.$menu,time().$name,'public');
-        $post->img_path='/storage/'.$file_path;
+        $resizedImage = Image::make($image)->resize(500, 350);
+        $imageName = time() . '_' . uniqid() . '.' . $image->hashName();
+        $file_path ='posts/'.$menu.'/' . $imageName ;
+        Storage::disk('public')->put($file_path, $resizedImage->stream());
+        // dd($file_path);
+        // $file_path=$request->file->storeAs('/posts/'.$menu,time().$name,'public');
+        $post->img_path=$file_path;
         $post->users_id='2';
         $post->service =  $menu ;
         $post->content = $request->input('content');
         $post->save();
+        // sans redimentioner
+
+        // $post=new Post();
+        // $name=$request->file('file')->hashName();
+        // $menu=$request->service;
+        // $file_path=$request->file->storeAs('/posts/'.$menu,time().$name,'public');
+        // $post->img_path='/storage/'.$file_path;
+        // $post->users_id='2';
+        // $post->service =  $menu ;
+        // $post->content = $request->input('content');
+        // $post->save();
 
         return redirect()->route('listePoste');
     }

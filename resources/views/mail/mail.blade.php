@@ -14,7 +14,7 @@
     <!-- Example of invalid for email html/css, will be detected by Mailtrap: -->
     <style>
       .main { background-color: white; }
-      a:hover { border-left-width: 1em; min-height: 2em; }
+      a:hover { border-left-width: 1em; min-height: 2em;}
     </style>
   </body>
 </html>

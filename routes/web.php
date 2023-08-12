@@ -89,6 +89,7 @@ Route::controller(SearchController::class)->group(function(){
 //Upload file
 Route::controller(UploadImagesController::class)->group(function(){
     Route::get('/upload-images','form')->name('form_upload');
+    Route::any('/delete-images','delete')->name('delete-images');
     Route::any('/upload-images/{menu}','save')->name('save_upload');
 });
 Route::controller(GalerryController::class)->group(function(){
