@@ -10,4 +10,9 @@ class DevisController extends Controller
     {
         return view('layouts.devis');
     }
+    public function liste()
+    {
+        return view('admin.lite_devis');
+    }
+
 }

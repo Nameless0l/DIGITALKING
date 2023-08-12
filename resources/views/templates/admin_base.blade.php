@@ -5,6 +5,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
   <title>King Digital Admin</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="{{asset('vendors/feather/feather.css')}}">
@@ -21,7 +22,8 @@
   <link rel="stylesheet" href="{{asset('css/vertical-layout-light/style.css')}}">
   <!-- endinject -->
   <link rel="shortcut icon" href="{{asset('img/favicon.ico')}}" />
-  <script src="https://cdn.tiny.cloud/1/mci331aanhykh06z55kd30loiholqd0lrughzubswk4lxzry/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+  <script src="{{asset('vendors/tinymce/tinymce/tinymce.min.js')}}" referrerpolicy="origin" ></script>
+  {{-- <script src="https://cdn.tiny.cloud/1/mci331aanhykh06z55kd30loiholqd0lrughzubswk4lxzry/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script> --}}
 </head>
 <body>
   <div class="container-scroller">

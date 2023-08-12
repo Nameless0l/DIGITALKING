@@ -23,7 +23,8 @@
                         <div class="col-md-6 wow slideInUp" data-wow-delay="0.6s">
                             <div class="blog-item bg-light rounded overflow-hidden">
                                 <div class="blog-img position-relative overflow-hidden">
-                                    <img class="img-fluid" src="{{asset('img/blog-2.jpg')}}" alt="">
+                                    {{-- @dd(asset($post->img_path)) --}}
+                                    <img class="img-fluid" src="{{asset($post->img_path)}}" alt={{$post->img_path}}>
                                     <a class="position-absolute top-0 start-0 bg-primary text-white rounded-end mt-5 py-2 px-4" href="">{{$post->service}}</a>
                                 </div>
                                 <div class="p-4">

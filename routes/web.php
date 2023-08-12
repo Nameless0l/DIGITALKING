@@ -6,6 +6,7 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\DevisController;
+use App\Http\Controllers\GalerryController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\SearchController;
@@ -38,13 +39,13 @@ Route::controller(AboutController::class)->group(function () {
 // Services
 Route::controller(ServicesController::class)->group(function () {
     Route::get('/services', 'index')->name('services');
-    Route::get('/serigraphie', 'serigraphie')->name('serigraphie');
+    Route::get('/service/{service}', 'service')->name('service');
 });
 Route::controller(BlogController::class)->group(function () {
     Route::get('/blog', 'index')->name('blog');
     Route::get('/blog-details/{id}', 'blogDetails')->name('blog.detail');
     Route::get('/post-creation','createPost')->name('create_post');
-    Route::get('/liste+posts','listePosts')->name('listePoste');
+    Route::get('/liste_posts','listePosts')->name('listePoste');
     Route::post('/create-blog','__create')->name('createPost');
 });
 //Contact us
@@ -62,6 +63,7 @@ Route::controller(PagesController::class)->group(function () {
 //devis
 Route::controller(DevisController::class)->group(function () {
     Route::get('/devis', 'index')->name('devis');
+    Route::get('/devis-liste', 'liste')->name('liste-devis');
 });
 Route::get('/king-digital',function(){
     return view('layouts.droits');
@@ -87,5 +89,8 @@ Route::controller(SearchController::class)->group(function(){
 //Upload file
 Route::controller(UploadImagesController::class)->group(function(){
     Route::get('/upload-images','form')->name('form_upload');
-    Route::post('/upload-images','save')->name('save_upload');
+    Route::any('/upload-images/{menu}','save')->name('save_upload');
+});
+Route::controller(GalerryController::class)->group(function(){
+    Route::get('admin/galerie/{menu}','index')->name('gellerie');
 });

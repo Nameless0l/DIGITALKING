@@ -12,14 +12,15 @@ class UploadImagesController extends Controller
         return view('test');
     }
 
-    public function save(Request $request){
-        $images=new images();
-        foreach ($request->file as $request){
-            $name =time().'_'.$request->getClientOriginalName();
-            $file_path=$request->storeAs('uploads',$name,'public');
+    public function save(Request $request,$menu){
+        for ($i=0; $i < count($request->file); $i++) {
+            $name =time().'_'.$request->file[$i]->hashName();
+            $file_path=$request->file[$i]->storeAs($menu,$name,'public');
+            $images=new images();
+            $images->service =$menu;
             $images->file_path='/storage/'.$file_path ;
             $images->save();
-    }
+        }
         return back()->with('success','fichier enregistrer avec success ')
                      ->with('file',$name);
     }

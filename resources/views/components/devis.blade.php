@@ -50,8 +50,11 @@
                                         <option value="infographie">infographie</option>
                                         <option value="Serigraphie">Serigraphie</option>
                                         <option value="Imprimerie">Imprimerie</option>
-                                        <option value="sites_web">conception de sites web</option>
-                                        <option value="applications_mobiles">Conception d'applications mobiles</option>
+                                        <option value="sites_web&aplications mobiles">conception de sites web & applications mobiles</option>
+                                        <option value="Packaging">Packaging</option>
+                                        <option value="Branding">Branding</option>
+                                        <option value="Gravure">Gravure</option>
+                                        <option value="Marquage">Marquage</option>
                                     </select>
                                 </div>
                                 <div class="col-12">

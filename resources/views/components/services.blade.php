@@ -12,7 +12,7 @@
                     </div>
                     <h4 class="mb-3">Infographie</h4>
                     <p class="m-0">Amet justo dolor lorem kasd amet magna sea stet eos vero lorem ipsum dolore sed</p>
-                    <a class="btn btn-lg btn-primary rounded" href="">
+                    <a class="btn btn-lg btn-primary rounded" href="{{route('service',['service'=>'Infographie'])}}">
                         <i class="bi bi-arrow-right"></i>
                     </a>
                 </div>
@@ -24,9 +24,23 @@
                     </div>
                     <h4 class="mb-3">Sérigraphie </h4>
                     <p class="m-0">Amet justo dolor lorem kasd amet magna sea stet eos vero lorem ipsum dolore sed</p>
-                    <a class="btn btn-lg btn-primary rounded" href="">
+                    <a class="btn btn-lg btn-primary rounded" href="{{route('service',['service'=>'Serigraphie'])}}">
                         <i class="bi bi-arrow-right"></i>
                     </a>
+                </div>
+            </div>
+            <div  class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.6s">
+                <div class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center" href="">
+
+                    <div class="service-icon">
+                        <i class="fa fa-search text-white"></i>
+                    </div>
+                    <h4 class="mb-3">Imprimerie </h4>
+                    <p class="m-0">Amet justo dolor lorem kasd amet magna sea stet eos vero lorem ipsum dolore sed</p>
+                    <a class="btn btn-lg btn-primary rounded" style="display:block" href="{{route('service',['service'=>'Imprimerie'])}}" >
+                        <i class="bi bi-arrow-right"></i>
+                    </a>
+
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.9s">
@@ -36,7 +50,7 @@
                     </div>
                     <h4 class="mb-3">Conception des sites web</h4>
                     <p class="m-0">Amet justo dolor lorem kasd amet magna sea stet eos vero lorem ipsum dolore sed</p>
-                    <a class="btn btn-lg btn-primary rounded" href="">
+                    <a class="btn btn-lg btn-primary rounded" href="{{route('service',['service'=>'site_web'])}}">
                         <i class="bi bi-arrow-right"></i>
                     </a>
                 </div>
@@ -46,25 +60,14 @@
                     <div class="service-icon">
                         <i class="fab fa-android text-white"></i>
                     </div>
-                    <h4 class="mb-3">Conceptions des Applications mobiles</h4>
+                    <h4 class="mb-3">Marquage</h4>
                     <p class="m-0">Amet justo dolor lorem kasd amet magna sea stet eos vero lorem ipsum dolore sed</p>
-                    <a class="btn btn-lg btn-primary rounded" href="">
+                    <a class="btn btn-lg btn-primary rounded" href="{{route('service',['service'=>'Marquage'])}}">
                         <i class="bi bi-arrow-right"></i>
                     </a>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.6s">
-                <div class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
-                    <div class="service-icon">
-                        <i class="fa fa-search text-white"></i>
-                    </div>
-                    <h4 class="mb-3">Imprimerie </h4>
-                    <p class="m-0">Amet justo dolor lorem kasd amet magna sea stet eos vero lorem ipsum dolore sed</p>
-                    <a class="btn btn-lg btn-primary rounded" href="">
-                        <i class="bi bi-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
+
             <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.6s">
                 <div class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
                     <div class="service-icon">
@@ -72,7 +75,43 @@
                     </div>
                     <h4 class="mb-3">Photographie </h4>
                     <p class="m-0">Amet justo dolor lorem kasd amet magna sea stet eos vero lorem ipsum dolore sed</p>
-                    <a class="btn btn-lg btn-primary rounded" href="">
+                    <a class="btn btn-lg btn-primary rounded" href="{{route('service',['service'=>'Photographie'])}}">
+                        <i class="bi bi-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.6s">
+                <div class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
+                    <div class="service-icon">
+                        <i class="fa fa-search text-white"></i>
+                    </div>
+                    <h4 class="mb-3">Branding </h4>
+                    <p class="m-0">Amet justo dolor lorem kasd amet magna sea stet eos vero lorem ipsum dolore sed</p>
+                    <a class="btn btn-lg btn-primary rounded" href="{{route('service',['service'=>'Branding'])}}">
+                        <i class="bi bi-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.6s">
+                <div class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
+                    <div class="service-icon">
+                        <i class="fa fa-search text-white"></i>
+                    </div>
+                    <h4 class="mb-3">Gravure</h4>
+                    <p class="m-0">Amet justo dolor lorem kasd amet magna sea stet eos vero lorem ipsum dolore sed</p>
+                    <a class="btn btn-lg btn-primary rounded" href="{{route('service',['service'=>'Gravure'])}}">
+                        <i class="bi bi-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.6s">
+                <div class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
+                    <div class="service-icon">
+                        <i class="fa fa-search text-white"></i>
+                    </div>
+                    <h4 class="mb-3">Packaging</h4>
+                    <p class="m-0">Amet justo dolor lorem kasd amet magna sea stet eos vero lorem ipsum dolore sed</p>
+                    <a class="btn btn-lg btn-primary rounded" href="{{route('service',['service'=>'Packaging'])}}">
                         <i class="bi bi-arrow-right"></i>
                     </a>
                 </div>

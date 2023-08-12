@@ -18,7 +18,7 @@
 </head>
 <body>
     <div class="container mt-5">
-        <form action="{{route('save_upload')}}" method="post" enctype="multipart/form-data">
+        <form action="{{route('save_upload',['menu'=>'Serigraphie'])}}" method="post" enctype="multipart/form-data">
           <h3 class="text-center mb-5">Upload File in Laravel</h3>
             @csrf
             @if ($message = Session::get('success'))
@@ -43,11 +43,6 @@
             <button type="submit" name="submit" class="btn btn-primary btn-block mt-4">
                 Upload Files
             </button>
-            @forelse ( as )
-
-            @empty
-
-            @endforelse
         </form>
     </div>
 </body>

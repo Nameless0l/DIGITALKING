@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\images;
 use Illuminate\Http\Request;
 
 class ServicesController extends Controller
@@ -9,8 +10,9 @@ class ServicesController extends Controller
     public function index(){
         return view('layouts.Services.index');
     }
-    public function serigraphie()
+    public function service($service)
     {
-        return view('layouts.Services.serigraphie');
+        $images=images::orderBy('create-at','desc')->where('service',$service)->get();
+        return view('layouts.Services.serigraphie',compact(['images','service']));
     }
 }

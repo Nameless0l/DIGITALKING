@@ -11,10 +11,12 @@ class BlogController extends Controller
     public function index(){
         $posts=Post::orderBy('created_at','desc')->paginate(8);
         $comments=Comment::all();
+
         return view('layouts.blog',compact(['posts','comments']));
     }
 
     public function blogDetails($id){
+
         $posts=Post::limit(5)->get();
         $post=Post::findorFail($id);
         $comments=Comment::where('posts_id',$id)->get();
@@ -26,15 +28,19 @@ class BlogController extends Controller
     }
     public function listePosts()
     {
-        $post =Post::findorFail(12);
-        return view('admin.liste_posts',compact(['post']));
+        $posts=Post::orderBy('created_at','desc')->paginate(8);
+        return view('admin.liste_posts',compact(['posts']));
     }
     public function __create(Request $request)
     {
-        // dd($request);
         $post=new Post();
+        $name=$request->file('file')->hashName();
+        $menu=$request->service;
+        $file_path=$request->file->storeAs('/posts/'.$menu,time().$name,'public');
+        $post->img_path='/storage/'.$file_path;
         $post->users_id='2';
-        $post->content = $request->input('content'); // Assurez-vous d'avoir le champ 'content' dans votre formulaire
+        $post->service =  $menu ;
+        $post->content = $request->input('content');
         $post->save();
 
         return redirect()->route('listePoste');

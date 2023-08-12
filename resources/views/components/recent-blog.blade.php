@@ -6,7 +6,7 @@
                         @forelse ($posts as $post)
 
                         <div class="d-flex rounded overflow-hidden mb-3">
-                            <img class="img-fluid" src="{{asset('img/blog-2.jpg')}}" style="width: 100px; height: 100px; object-fit: cover;" alt="">
+                            <img class="img-fluid" src="{{asset($post->img_path)}}" style="width: 100px; height: 100px; object-fit: cover;" alt="">
                             <a href="{{route('blog.detail',['id'=>$post->id])}}" class="h5 fw-semi-bold d-flex align-items-center bg-light px-3 mb-0">{{$post->title}}</a>
                         </div>
                         @empty

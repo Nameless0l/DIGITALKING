@@ -21,7 +21,7 @@ class PostFactory extends Factory
         return [
             'users_id'=>User::inRandomOrder()->first()->id,
             'title'=>fake()->sentence(),
-            'service'=>fake()->randomElement([ 'sérigraphie', 'infographie','imprimerie','conception de site web']),
+            'service'=>fake()->randomElement(['infographie', 'sérigraphie', 'imprimerie','conception de site web']),
             'content'=>fake()->unique()->paragraph(),
         ];
     }
