@@ -4295,6 +4295,28 @@
                         return $instance->macroCall($method, $parameters);
         }
                     /**
+         * Remove all items from the cache.
+         *
+         * @return bool 
+         * @static 
+         */ 
+        public static function flush()
+        {
+                        /** @var \Illuminate\Cache\ArrayStore $instance */
+                        return $instance->flush();
+        }
+                    /**
+         * Get the cache key prefix.
+         *
+         * @return string 
+         * @static 
+         */ 
+        public static function getPrefix()
+        {
+                        /** @var \Illuminate\Cache\ArrayStore $instance */
+                        return $instance->getPrefix();
+        }
+                    /**
          * Get a lock instance.
          *
          * @param string $name
@@ -4305,7 +4327,7 @@
          */ 
         public static function lock($name, $seconds = 0, $owner = null)
         {
-                        /** @var \Illuminate\Cache\FileStore $instance */
+                        /** @var \Illuminate\Cache\ArrayStore $instance */
                         return $instance->lock($name, $seconds, $owner);
         }
                     /**
@@ -4318,76 +4340,8 @@
          */ 
         public static function restoreLock($name, $owner)
         {
-                        /** @var \Illuminate\Cache\FileStore $instance */
+                        /** @var \Illuminate\Cache\ArrayStore $instance */
                         return $instance->restoreLock($name, $owner);
-        }
-                    /**
-         * Remove all items from the cache.
-         *
-         * @return bool 
-         * @static 
-         */ 
-        public static function flush()
-        {
-                        /** @var \Illuminate\Cache\FileStore $instance */
-                        return $instance->flush();
-        }
-                    /**
-         * Get the full path for the given cache key.
-         *
-         * @param string $key
-         * @return string 
-         * @static 
-         */ 
-        public static function path($key)
-        {
-                        /** @var \Illuminate\Cache\FileStore $instance */
-                        return $instance->path($key);
-        }
-                    /**
-         * Get the Filesystem instance.
-         *
-         * @return \Illuminate\Filesystem\Filesystem 
-         * @static 
-         */ 
-        public static function getFilesystem()
-        {
-                        /** @var \Illuminate\Cache\FileStore $instance */
-                        return $instance->getFilesystem();
-        }
-                    /**
-         * Get the working directory of the cache.
-         *
-         * @return string 
-         * @static 
-         */ 
-        public static function getDirectory()
-        {
-                        /** @var \Illuminate\Cache\FileStore $instance */
-                        return $instance->getDirectory();
-        }
-                    /**
-         * Set the cache directory where locks should be stored.
-         *
-         * @param string|null $lockDirectory
-         * @return \Illuminate\Cache\FileStore 
-         * @static 
-         */ 
-        public static function setLockDirectory($lockDirectory)
-        {
-                        /** @var \Illuminate\Cache\FileStore $instance */
-                        return $instance->setLockDirectory($lockDirectory);
-        }
-                    /**
-         * Get the cache key prefix.
-         *
-         * @return string 
-         * @static 
-         */ 
-        public static function getPrefix()
-        {
-                        /** @var \Illuminate\Cache\FileStore $instance */
-                        return $instance->getPrefix();
         }
          
     }
@@ -18306,7 +18260,71 @@
      
 }
 
-        namespace Spatie\LaravelIgnition\Facades { 
+        namespace Intervention\Image\Facades { 
+            /**
+     * 
+     *
+     */ 
+        class Image {
+                    /**
+         * Overrides configuration settings
+         *
+         * @param array $config
+         * @return self 
+         * @static 
+         */ 
+        public static function configure($config = [])
+        {
+                        /** @var \Intervention\Image\ImageManager $instance */
+                        return $instance->configure($config);
+        }
+                    /**
+         * Initiates an Image instance from different input types
+         *
+         * @param mixed $data
+         * @return \Intervention\Image\Image 
+         * @static 
+         */ 
+        public static function make($data)
+        {
+                        /** @var \Intervention\Image\ImageManager $instance */
+                        return $instance->make($data);
+        }
+                    /**
+         * Creates an empty image canvas
+         *
+         * @param int $width
+         * @param int $height
+         * @param mixed $background
+         * @return \Intervention\Image\Image 
+         * @static 
+         */ 
+        public static function canvas($width, $height, $background = null)
+        {
+                        /** @var \Intervention\Image\ImageManager $instance */
+                        return $instance->canvas($width, $height, $background);
+        }
+                    /**
+         * Create new cached image and run callback
+         * (requires additional package intervention/imagecache)
+         *
+         * @param \Closure $callback
+         * @param int $lifetime
+         * @param boolean $returnObj
+         * @return \Image 
+         * @static 
+         */ 
+        public static function cache($callback, $lifetime = null, $returnObj = false)
+        {
+                        /** @var \Intervention\Image\ImageManager $instance */
+                        return $instance->cache($callback, $lifetime, $returnObj);
+        }
+         
+    }
+     
+}
+
+    namespace Spatie\LaravelIgnition\Facades { 
             /**
      * 
      *
@@ -22682,6 +22700,7 @@ namespace  {
             class Validator extends \Illuminate\Support\Facades\Validator {}
             class View extends \Illuminate\Support\Facades\View {}
             class Vite extends \Illuminate\Support\Facades\Vite {}
+            class Image extends \Intervention\Image\Facades\Image {}
             class Flare extends \Spatie\LaravelIgnition\Facades\Flare {}
      
 }
