@@ -30,7 +30,7 @@ Route::get('/', function () {
     return view('master');
 })->name('accueil');
 
-Route::get('/admin+francky',function(){
+Route::middleware(['auth','IsAdmin'])->get('/admin/dashboard',function(){
     return view('masterAdmin');
 })->name('master');
 Route::controller(AboutController::class)->group(function () {
@@ -44,13 +44,15 @@ Route::controller(ServicesController::class)->group(function () {
 Route::controller(BlogController::class)->group(function () {
     Route::get('/blog', 'index')->name('blog');
     Route::get('/blog-details/{id}', 'blogDetails')->name('blog.detail');
-    Route::get('/post-creation','createPost')->name('create_post');
-    Route::get('/liste_posts','listePosts')->name('listePoste');
-    Route::post('/create-blog','__create')->name('createPost');
+
+    Route::middleware(['auth','IsAdmin'])->get('/liste_posts','listePosts')->name('listePoste');
+    Route::middleware(['auth','IsAdmin'])->get('admin/post-creation','createPost')->name('create_post');
+    Route::middleware(['auth','IsAdmin'])->post('admin/post-creation','__create')->name('createPost');
 });
 //Contact us
 Route::controller(ContactUsController::class)->group(function () {
     Route::get('/contactez-nous', 'contact')->name('contact');
+    Route::post('envoie-message','send')->name('ask-contact');
 });
 
 
@@ -63,19 +65,20 @@ Route::controller(PagesController::class)->group(function () {
 //devis
 Route::controller(DevisController::class)->group(function () {
     Route::get('/devis', 'index')->name('devis');
-    Route::get('/devis-liste', 'liste')->name('liste-devis');
+    Route::middleware(['auth','IsAdmin'])->any('demandez-devis','askquote')->name('askquote');
+    Route::middleware(['auth','IsAdmin'])->get('/devis-liste', 'liste')->name('liste-devis');
 });
 Route::get('/king-digital',function(){
     return view('layouts.droits');
 })->name('droits');
 
 //web
-Route::controller(MailController::class)->group(function(){
+Route::middleware(['auth'])->controller(MailController::class)->group(function(){
     Route::get('/envoie','mailnotify')->name('sendmail');
 });
 
 //comment
-Route::controller(CommentController::class)->group(function(){
+Route::middleware(['auth'])->controller(CommentController::class)->group(function(){
     Route::any('add/{posts_id}', 'add')->name('add_comment');
     Route::post('delete', 'delete')->name('delete_comment');
 });
@@ -87,11 +90,12 @@ Route::controller(SearchController::class)->group(function(){
 });
 
 //Upload file
-Route::controller(UploadImagesController::class)->group(function(){
+Route::middleware(['auth','IsAdmin'])->controller(UploadImagesController::class)->group(function(){
     Route::get('/upload-images','form')->name('form_upload');
     Route::any('/delete-images','delete')->name('delete-images');
     Route::any('/upload-images/{menu}','save')->name('save_upload');
 });
 Route::controller(GalerryController::class)->group(function(){
-    Route::get('admin/galerie/{menu}','index')->name('gellerie');
+    Route::middleware(['auth','IsAdmin'])->get('admin/galerie/{menu}','index')->name('gellerie');
 });
+require __DIR__.'/auth.php';

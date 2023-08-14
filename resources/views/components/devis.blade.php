@@ -35,18 +35,34 @@
                 </div>
                 <div class="col-lg-5">
                     <div class="bg-primary rounded h-100 d-flex align-items-center p-5 wow zoomIn" data-wow-delay="0.9s">
-                        <form action="" @method('post')>
+                        <form action="{{route('askquote')}}">
+                            @method('post')
                             @csrf
                             <div class="row g-3">
                                 <div class="col-xl-12">
                                     <input type="text" name="name" class="form-control bg-light border-0" placeholder="votre nom" style="height: 55px;">
                                 </div>
+                                @if ($errors->has('name'))
+                                    <ul class ='text-sm text-red-600 space-y-1'>
+                                        @foreach ($errors->get('name') as $message)
+                                            <li>{{ $message }}</li>
+                                        @endforeach
+                                    </ul>
+                                 @endif
                                 <div class="col-12">
                                     <input type="email" name="email" class="form-control bg-light border-0" placeholder="votre adresse email" style="height: 55px;">
                                 </div>
+                                @if ($errors->has('email'))
+                                    <ul class ='text-sm text-red-600 space-y-1'>
+                                        @foreach ($errors->get('email') as $message)
+                                            <li>{{ $message }}</li>
+                                        @endforeach
+                                    </ul>
+                                @endif
                                 <div class="col-12">
-                                    <select name="service" class="form-select bg-light border-0" style="height: 55px;">
-                                        <option selected>Choisir un service</option>
+                                    {{-- <label for="service">Choisir un service</label> --}}
+                                    <select required id="service" name="service" class="form-select bg-light border-0" style="height: 55px;">
+                                        <option >Choisir un service</option>
                                         <option value="infographie">infographie</option>
                                         <option value="Serigraphie">Serigraphie</option>
                                         <option value="Imprimerie">Imprimerie</option>
@@ -57,11 +73,25 @@
                                         <option value="Marquage">Marquage</option>
                                     </select>
                                 </div>
+                                @if ($errors->has('service'))
+                                    <ul role="danger" class ='danger text-sm text-red-600 space-y-1'>
+                                        @foreach ($errors->get('service') as $message)
+                                            <li>{{ $message }}</li>
+                                        @endforeach
+                                    </ul>
+                                @endif
                                 <div class="col-12">
                                     <textarea class="form-control bg-light border-0" name="message" rows="3" placeholder="Message"></textarea>
                                 </div>
+                                @if ($errors->has('message'))
+                                    <ul class ='text-sm text-red-600 space-y-1'>
+                                        @foreach ($errors->get('message') as $message)
+                                            <li>{{ $message }}</li>
+                                        @endforeach
+                                    </ul>
+                                @endif
                                 <div class="col-12">
-                                    <button class="btn btn-dark w-100 py-3" type="submit">Demander un devis</button>
+                                    <button class="btn btn-dark w-100 py-3" type="submit" aria-placeholder="Expliquer votre besoin ici et vos attentes" >Demander un devis</button>
                                 </div>
                             </div>
                         </form>

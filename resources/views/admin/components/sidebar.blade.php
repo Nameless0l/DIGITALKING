@@ -21,47 +21,47 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" data-toggle="collapse" href="#form-elements" aria-expanded="false" aria-controls="form-elements">
+        <a class="nav-link" data-toggle="collapse" href="#Galerie" aria-expanded="false" aria-controls="Galerie">
           <i class="mdi mdi-folder-multiple-image menu-icon"></i>
           <span class="menu-title">Galerie</span>
           <i class="menu-arrow"></i>
         </a>
-        <div class="collapse" id="form-elements">
+        <div class="collapse" id="Galerie">
           <ul class="nav flex-column sub-menu">
             <li class="nav-item"><a class="nav-link" href="{{route('gellerie',['menu'=>'Infographie'])}}">Infographie</a></li>
           </ul>
         </div>
-        <div class="collapse" id="form-elements">
+        <div class="collapse" id="Galerie">
           <ul class="nav flex-column sub-menu">
             <li class="nav-item"><a class="nav-link" href="{{route('gellerie',['menu'=>'Serigraphie'])}}">Serigraphie</a></li>
           </ul>
         </div>
-        <div class="collapse" id="form-elements">
+        <div class="collapse" id="Galerie">
           <ul class="nav flex-column sub-menu">
             <li class="nav-item"><a class="nav-link" href="{{route('gellerie',['menu'=>'Imprimerie'])}}">Imprimerie</a></li>
           </ul>
         </div>
-        <div class="collapse" id="form-elements">
+        <div class="collapse" id="Galerie">
           <ul class="nav flex-column sub-menu">
             <li class="nav-item"><a class="nav-link" href="{{route('gellerie',['menu'=>'Photographie'])}}">Photographie</a></li>
           </ul>
         </div>
-        <div class="collapse" id="form-elements">
+        <div class="collapse" id="Galerie">
           <ul class="nav flex-column sub-menu">
             <li class="nav-item"><a class="nav-link" href="{{route('gellerie',['menu'=>'Gravure'])}}">Gravure</a></li>
           </ul>
         </div>
-        <div class="collapse" id="form-elements">
+        <div class="collapse" id="Galerie">
           <ul class="nav flex-column sub-menu">
             <li class="nav-item"><a class="nav-link" href="{{route('gellerie',['menu'=>'Branding'])}}">Branding</a></li>
           </ul>
         </div>
-        <div class="collapse" id="form-elements">
+        <div class="collapse" id="Galerie">
           <ul class="nav flex-column sub-menu">
             <li class="nav-item"><a class="nav-link" href="{{route('gellerie',['menu'=>'Packaging'])}}">Packaging</a></li>
           </ul>
         </div>
-        <div class="collapse" id="form-elements">
+        <div class="collapse" id="Galerie">
           <ul class="nav flex-column sub-menu">
             <li class="nav-item"><a class="nav-link" href="{{route('gellerie',['menu'=>'Marquage'])}}">Marquage</a></li>
           </ul>
@@ -87,7 +87,31 @@
         </a>
         <div class="collapse" id="messages">
           <ul class="nav flex-column sub-menu">
-            <li class="nav-item"> <a class="nav-link" href="pages/charts/chartjs.html">ChartJs</a></li>
+            <li class="nav-item"> <a class="nav-link" href="">Messages</a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="collapse" href="#database" aria-expanded="false" aria-controls="database">
+          <i class="mdi mdi-database-plus menu-icon"></i>
+          <span class="menu-title ">Base de donnnées</span>
+          <i class="menu-arrow"></i>
+        </a>
+        <div class="collapse" id="database">
+          <ul class=" nav flex-column  sub-menu">
+            <li class="nav-item "><a class="nav-link" href="">Utilisateurs</a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="collapse" href="#sites" aria-expanded="false" aria-controls="sites">
+          <i class="mdi mdi-file-tree menu-icon"></i>
+          <span class="menu-title">Mes sites</span>
+          <i class="menu-arrow"></i>
+        </a>
+        <div class="collapse" id="sites">
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item"> <a class="nav-link" href="/">King digital</a></li>
           </ul>
         </div>
       </li>

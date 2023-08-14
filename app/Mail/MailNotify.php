@@ -20,6 +20,7 @@ class MailNotify extends Mailable
     public function __construct($data)
     {
         $this->data=$data ;
+
     }
 
     /**
@@ -28,14 +29,13 @@ class MailNotify extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Mail Notify',
+            subject: $this->data['objet'],
         );
     }
-
     public function build(){
-        // dd($this->data);
-        return $this->from('wwwwmbassiloic@gmail.com')
-                    ->view('mail.mail');
+        $data =$this->data;
+        return $this->from($this->data['email'])
+                    ->view('mail.mail',compact(['data']));
     }
 
     /**
@@ -43,7 +43,6 @@ class MailNotify extends Mailable
      */
     public function content(): Content
     {
-        // dd($this->data);
         return new Content(
             view: 'mail.mail',
         );

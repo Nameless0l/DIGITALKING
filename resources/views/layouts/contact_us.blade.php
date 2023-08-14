@@ -78,20 +78,49 @@
             </div>
             <div class="row">
                <div class="col-md-6">
-                  <form id="request" class="main_form">
-                     <div class="row">
+                  <form id="request" action="{{route('ask-contact')}}" class="main_form" method="post">
+                    @csrf
+                    <div class="row">
                         <div class="col-md-12 ">
-                           <input class="contactus" placeholder="Name" type="type" name="Name">
+                           <input class="contactus" placeholder="Name" type="text" name="name">
                         </div>
+                        @if ($errors->has('name'))
+                        @foreach ($errors->get('name') as $message )
                         <div class="col-md-12">
-                           <input class="contactus" placeholder="Email" type="type" name="Email">
+                            <P class="alert-danger">{{$message}}</P>
                         </div>
+                        @endforeach
+                    @endif
                         <div class="col-md-12">
-                           <input class="contactus" placeholder="Phone Number" type="type" name="Phone Number">
+                           <input class="contactus" placeholder="Email" type="text" name="email">
                         </div>
+                        @if ($errors->has('email'))
+                        @foreach ($errors->get('email') as $message )
                         <div class="col-md-12">
-                           <textarea class="textarea" placeholder="Message" type="type" Message="Name">Message</textarea>
+                            <P class="alert-danger">{{$message}}</P>
                         </div>
+                        @endforeach
+                    @endif
+                        <div class="col-md-12">
+                           <input class="contactus" placeholder="Phone Number" type="number" name="phone">
+                        </div>
+                        @if ($errors->has('phone'))
+                            @foreach ($errors->get('phone') as $message )
+                            <div class="col-md-12">
+                                <P class="alert-danger">{{$message}}</P>
+                            </div>
+                            @endforeach
+                        @endif
+                        <div class="col-md-12">
+                           <textarea class="textarea" placeholder="Message" name="message" type="text">Message</textarea>
+                        </div>
+                        @if ($errors->has('message'))
+                            @foreach ($errors->get('message') as $message )
+                            <div class="col-md-12">
+                                <P class="alert-danger">{{$message}}</P>
+                            </div>
+                            @endforeach
+                        @endif
                         <div class="col-md-12">
                            <button class="send_btn  btn-primary  py-3"">Send</button>
                         </div>

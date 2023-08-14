@@ -13,13 +13,13 @@
     <div id="error">
 
 <div class="container text-center pt-32">
-    <h1 class='error-title'>404</h1>
-    <p>Oops! 😖 Cette requette ne peut aboutir ou page inexistante</p>
+    <h1 class='error-title'>403</h1>
+    <p>Oops! 😖 Vous n'vez pas acces à cette page</p>
     <a href="{{route('accueil')}}" class='btn btn-primary'>Page d'accueil</a>
 </div>
 
         <div class="footer pt-32">
-            <p class="text-center">Tout droits reservés &copy; Nameless</p>
+            <p class="text-center">Touts droits reservés &copy; Nameless</p>
         </div>
     </div>
 </body>

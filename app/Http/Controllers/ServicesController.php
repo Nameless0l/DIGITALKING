@@ -13,6 +13,6 @@ class ServicesController extends Controller
     public function service($service)
     {
         $images=images::orderBy('create-at','desc')->where('service',$service)->get();
-        return view('layouts.Services.serigraphie',compact(['images','service']));
+        return view('layouts.Services.service',compact(['images','service']));
     }
 }
