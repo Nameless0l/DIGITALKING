@@ -87,7 +87,12 @@
         </a>
         <div class="collapse" id="messages">
           <ul class="nav flex-column sub-menu">
-            <li class="nav-item"> <a class="nav-link" href="">Messages</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{route('messages')}}">Messages</a></li>
+          </ul>
+        </div>
+        <div class="collapse" id="messages">
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item"> <a class="nav-link" href="{{route('liste-devis')}}">Devis</a></li>
           </ul>
         </div>
       </li>
@@ -99,7 +104,7 @@
         </a>
         <div class="collapse" id="database">
           <ul class=" nav flex-column  sub-menu">
-            <li class="nav-item "><a class="nav-link" href="">Utilisateurs</a></li>
+            <li class="nav-item "><a class="nav-link" href="{{route('utilisateurs')}}">Utilisateurs</a></li>
           </ul>
         </div>
       </li>

@@ -9,25 +9,22 @@
             <table class="table table-striped table-borderless">
               <thead>
                 <tr>
-                  <th>Description</th>
-                  <th>Objet</th>
+                  <th>Nom</th>
+                  <th>Email</th>
                   <th>Date</th>
                   <th>Statut</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>Search Engine Marketing</td>
-                  <td class="font-weight-bold">$362</td>
-                  <td>21 Sep 2018</td>
-                  <td class="font-weight-medium"><div class="badge badge-success">Completed</div></td>
+                @foreach($users as $user)
+                    <tr id="message-{{ $user->id }}">
+                    <td>{{$user->name}}</td>
+                    <td class="font-weight-bold">{{$user->email}}</td>
+                    <td>{{$user->created_at->format('D M Y')}}</td>
+                    <td class="font-weight-medium"><div class="badge badge-success">Completed</div></td>
+
                 </tr>
-                <tr>
-                  <td>Search Engine Optimization</td>
-                  <td class="font-weight-bold">$116</td>
-                  <td>13 Jun 2018</td>
-                  <td class="font-weight-medium"><div class="badge badge-success">Completed</div></td>
-                </tr>
+                @endforeach
               </tbody>
             </table>
           </div>

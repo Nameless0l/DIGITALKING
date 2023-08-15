@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\MailController;
+use App\Models\Message;
 
 class DevisController extends Controller
 {
@@ -13,7 +14,8 @@ class DevisController extends Controller
     }
     public function liste()
     {
-        return view('admin.lite_devis');
+        $devis =Message::orderBy('created_at','desc')->where('cause','Devis');
+        return view('admin.lite_devis',compact(['devis']));
     }
     public function askquote(Request $request){
 

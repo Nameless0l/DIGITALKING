@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Post extends Model
 {
     use HasFactory;
-    public function comment():HasMany
+    public function comment()
     {
         return $this->hasMany(Comment::class,'posts_id');
     }

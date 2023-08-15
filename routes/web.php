@@ -8,10 +8,12 @@ use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\DevisController;
 use App\Http\Controllers\GalerryController;
 use App\Http\Controllers\MailController;
+use App\Http\Controllers\MessageController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\ServicesController;
 use App\Http\Controllers\UploadImagesController;
+use App\Http\Controllers\UserController;
 use App\Models\Comment;
 use Illuminate\Routing\RouteAction;
 
@@ -33,6 +35,7 @@ Route::get('/', function () {
 Route::middleware(['auth','IsAdmin'])->get('/admin/dashboard',function(){
     return view('masterAdmin');
 })->name('master');
+
 Route::controller(AboutController::class)->group(function () {
     Route::get('/about', 'index')->name('about');
 });
@@ -45,7 +48,9 @@ Route::controller(BlogController::class)->group(function () {
     Route::get('/blog', 'index')->name('blog');
     Route::get('/blog-details/{id}', 'blogDetails')->name('blog.detail');
 
+
     Route::middleware(['auth','IsAdmin'])->get('/liste_posts','listePosts')->name('listePoste');
+    Route::delete('/suppression/post/{id}','destroy');
     Route::middleware(['auth','IsAdmin'])->get('admin/post-creation','createPost')->name('create_post');
     Route::middleware(['auth','IsAdmin'])->post('admin/post-creation','__create')->name('createPost');
 });
@@ -53,6 +58,15 @@ Route::controller(BlogController::class)->group(function () {
 Route::controller(ContactUsController::class)->group(function () {
     Route::get('/contactez-nous', 'contact')->name('contact');
     Route::post('envoie-message','send')->name('ask-contact');
+});
+
+Route::controller(MessageController::class)->group(function (){
+    Route::get('/messages','store')->name('messages');
+    Route::delete('/suppression/message/{id}','destroy');
+});
+
+Route::controller(UserController::class)->group(function (){
+    Route::get('/utilisateurs','store')->name('utilisateurs');
 });
 
 

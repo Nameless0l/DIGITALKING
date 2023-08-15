@@ -34,7 +34,7 @@
                 </div>
               </div>
               <div class="preview-item-content">
-                <h6 class="preview-subject font-weight-normal">Application Error</h6>
+                <h6 class="preview-subject font-weight-normal">Lorem</h6>
                 <p class="font-weight-light small-text mb-0 text-muted">
                   Just now
                 </p>
@@ -60,7 +60,7 @@
                 </div>
               </div>
               <div class="preview-item-content">
-                <h6 class="preview-subject font-weight-normal">New user registration</h6>
+                <h6 class="preview-subject font-weight-normal">Nouveaux  utilisateurs</h6>
                 <p class="font-weight-light small-text mb-0 text-muted">
                   2 days ago
                 </p>
@@ -73,14 +73,18 @@
             <img src="{{asset('images/faces/face28.jpg')}}" alt="profile"/>
           </a>
           <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
-            <a class="dropdown-item">
+            {{-- <a class="dropdown-item">
               <i class="ti-settings text-primary"></i>
               Settings
-            </a>
-            <a class="dropdown-item">
-              <i class="ti-power-off text-primary"></i>
-              Logout
-            </a>
+            </a> --}}
+
+            <form action="{{route('logout')}}" method="POST">
+                @csrf
+                <a href="{{route('logout')}}" type="submit" class="dropdown-item">
+                    <i class="ti-power-off text-primary"></i>
+                    Se déconnecter
+                </a>
+            </form>
           </div>
         </li>
         <li class="nav-item nav-settings d-none d-lg-flex">

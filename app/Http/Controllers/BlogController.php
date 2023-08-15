@@ -29,6 +29,15 @@ class BlogController extends Controller
     {
         return view('admin.creation_post');
     }
+
+    public function destroy($id)
+    {
+        $post = Post::findOrFail($id);
+        $post->comment()->delete();
+        $post->delete();
+        return response()->json(['message' => 'Message deleted successfully']);
+    }
+
     public function listePosts()
     {
         $posts=Post::orderBy('created_at','desc')->paginate(8);

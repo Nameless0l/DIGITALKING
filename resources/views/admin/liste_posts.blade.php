@@ -2,220 +2,81 @@
 @section('content')
 <div class="row" style="width:100%">
     <!-- Carousel wrapper -->
-<div
-id="carouselMultiItemExample"
-class="carousel slide carousel-dark text-center"
-data-mdb-ride="carousel"
->
-<!-- Controls -->
-<div class="d-flex justify-content-center mb-4">
-  <button
-    class="carousel-control-prev position-relative"
-    type="button"
-    data-mdb-target="#carouselMultiItemExample"
-    data-mdb-slide="prev"
-  >
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button
-    class="carousel-control-next position-relative"
-    type="button"
-    data-mdb-target="#carouselMultiItemExample"
-    data-mdb-slide="next"
-  >
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
-<!-- Inner -->
-<div class="carousel-inner py-4">
-  <!-- Single item -->
-  <div class="carousel-item active">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-4">
-          <div class="card">
-            <img
-              src="https://mdbcdn.b-cdn.net/img/new/standard/nature/181.webp"
-              class="card-img-top"
-              alt="Waterfall"
-            />
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up the bulk
-                of the card's content.
-              </p>
-              <a href="#!" class="btn btn-primary">Button</a>
-            </div>
-          </div>
-        </div>
+    <!-- Scrollable modal -->
+<div class="modal-dialog modal-dialog-scrollable">
 
-        <div class="col-lg-4 d-none d-lg-block">
-          <div class="card">
-            <img
-              src="https://mdbcdn.b-cdn.net/img/new/standard/nature/182.webp"
-              class="card-img-top"
-              alt="Sunset Over the Sea"
-            />
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up the bulk
-                of the card's content.
-              </p>
-              <a href="#!" class="btn btn-primary">Button</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 d-none d-lg-block">
-          <div class="card">
-            <img
-              src="https://mdbcdn.b-cdn.net/img/new/standard/nature/183.webp"
-              class="card-img-top"
-              alt="Sunset over the Sea"
-            />
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up the bulk
-                of the card's content.
-              </p>
-              <a href="#!" class="btn btn-primary">Button</a>
-            </div>
-          </div>
-        </div>
+  </div>
+@forelse ($posts as $post )
+<div id="post-{{$post->id}}" class=" col-md-4 ">
+    <div class="card">
+      <img
+        src="https://mdbcdn.b-cdn.net/img/new/standard/nature/181.webp"
+        class="card-img-top"
+        alt="Waterfall"
+      />
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">
+            {!! Str::limit($post->content, 100, '...') !!}
+        </p>
+        <a href="#!"class="btn btn-info" data-toggle="modal" data-target="#viewPost{{ $post->id }}">voir +</a>
+        {{-- <a href="#!" class="btn btn-">modifier</a> --}}
+        <a href="#!" class="btn btn-danger" onclick="confirmDelete({{ $post->id }})">Sup</a>
       </div>
     </div>
   </div>
+     <!-- Modal pour afficher le post -->
+     <div class="modal fade" id="viewPost{{ $post->id }}" tabindex="-1" role="dialog" aria-labelledby="viewPostLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <img
+                    src="{{asset('storage/'.$post->file_path)}}"
+                    class="card-img-top"
+                    alt="Waterfall"
+                  />
 
-  <!-- Single item -->
-  <div class="carousel-item">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-4 col-md-12">
-          <div class="card">
-            <img
-              src="https://mdbcdn.b-cdn.net/img/new/standard/nature/184.webp"
-              class="card-img-top"
-              alt="Fissure in Sandstone"
-            />
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up the bulk
-                of the card's content.
-              </p>
-              <a href="#!" class="btn btn-primary">Button</a>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-header">
+                    <h5 class="modal-title" id="viewPostLabel">{{ $post->title }}</h5>
+                </div>
+                <div class="modal-body">
+                    {!! $post->content !!}
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                </div>
             </div>
-          </div>
         </div>
-
-        <div class="col-lg-4 d-none d-lg-block">
-          <div class="card">
-            <img
-              src="https://mdbcdn.b-cdn.net/img/new/standard/nature/185.webp"
-              class="card-img-top"
-              alt="Storm Clouds"
-            />
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up the bulk
-                of the card's content.
-              </p>
-              <a href="#!" class="btn btn-primary">Button</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 d-none d-lg-block">
-          <div class="card">
-            <img
-              src="https://mdbcdn.b-cdn.net/img/new/standard/nature/186.webp"
-              class="card-img-top"
-              alt="Hot Air Balloons"
-            />
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up the bulk
-                of the card's content.
-              </p>
-              <a href="#!" class="btn btn-primary">Button</a>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
-  </div>
+@empty
+ <h1>Auccune photo</h1>
+@endforelse
 
-  <!-- Single item -->
-  <div class="carousel-item">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
-          <div class="card">
-            <img
-              src="https://mdbcdn.b-cdn.net/img/new/standard/nature/187.webp"
-              class="card-img-top"
-              alt="Peaks Against the Starry Sky"
-            />
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up the bulk
-                of the card's content.
-              </p>
-              <a href="#!" class="btn btn-primary">Button</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 mb-4 mb-lg-0 d-none d-lg-block">
-          <div class="card">
-            <img
-              src="https://mdbcdn.b-cdn.net/img/new/standard/nature/188.webp"
-              class="card-img-top"
-              alt="Bridge Over Water"
-            />
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up the bulk
-                of the card's content.
-              </p>
-              <a href="#!" class="btn btn-primary">Button</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 mb-4 mb-lg-0 d-none d-lg-block">
-          <div class="card">
-            <img
-              src="https://mdbcdn.b-cdn.net/img/new/standard/nature/189.webp"
-              class="card-img-top"
-              alt="Purbeck Heritage Coast"
-            />
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up the bulk
-                of the card's content.
-              </p>
-              <a href="#!" class="btn btn-primary">Button</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 </div>
-<!-- Inner -->
-</div>
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+    function confirmDelete(postId) {
+        if (confirm("Êtes-vous sûr de vouloir supprimer ce message ?")) {
+            // Utilisez Axios pour effectuer la suppression
+              axios.delete(`/suppression/post/${postId}`)
+                .then(response => {
+                    // Supprimer l'élément de la liste côté client
+                    document.getElementById(`post-${postId}`).remove();
+                })
+                .catch(error => {
+                    console.error(error);
+                });
+        }
+    }
+
+</script>
+
 <!-- Carousel wrapper -->
-</div>
+
 @endsection
 
